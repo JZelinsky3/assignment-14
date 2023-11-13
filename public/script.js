@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
+    console.log('Initializing...');
     try {
         const movies = await fetchMovies();
         displayMovies(movies);
@@ -11,8 +12,19 @@ async function init() {
 }
 
 async function fetchMovies() {
-    const response = await fetch('http://localhost:3000/');
-    return response.json();
+    console.log('Fetching movies...');
+    try {
+        const response = await fetch('http://localhost:3000/movies');
+        console.log('Response:', response);
+        if (!response.ok) {
+            console.error('Failed to fetch movies:', response.statusText);
+            throw new Error(`Failed to fetch movies (HTTP ${response.status})`);
+        }
+        return response.json();
+    } catch (error) {
+        console.error('Error fetching movies:', error.message);
+        throw new Error(`Failed to fetch movies: ${error.message}`);
+    }
 }
 
 function displayMovies(movies) {
