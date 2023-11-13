@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Comedy Movies</title>
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <div class="movie-container" id="movieContainer">
+        </div>
+
+        <div id="addMovieForm">
+            <h2>Add a New Movie</h2>
+            <form id="movieForm" onsubmit="addMovie(event)">
+                <ul>
+                    <li><label for="title">Title:</label>
+                        <input type="text" id="title" name="title" required>
+        
+                        <label for="genre">Genre:</label>
+                        <input type="text" id="genre" name="genre" required></li>
+        
+                        <li><label for="year">Year:</label>
+                        <input type="number" id="year" name="year" required>
+        
+                        <label for="actors">Actors:</label>
+                        <input type="text" id="actors" name="actors" required></li>
+        
+                        <li><label for="director">Director:</label>
+                        <input type="text" id="director" name="director" required>
+        
+                        <label for="rating">Rating:</label>
+                        <input type="number" id="rating" name="rating" step="0.1" required></li>
+        
+                        <li><label for="quotes">Quotes:</label>
+                        <input type="text" id="quotes" name="quotes"></li>
+                </ul>
+                <button id="center" type="submit">Add Movie</button>
+            </form>
+        </div>
+
+        <div id="successMessage" class="hidden">Movie added successfully!</div>
+        <div id="errorMessage" class="hidden">Error adding movie. Please check your input.</div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', async function() {
+                try {
+                    const movies = await fetchMovies();
+                    displayMovies(movies);
+                } catch (error) {
+                    console.error('Error fetching movies:', error);
+                    showErrorMessage('Failed to fetch movies. Please try again later.');
+                }
+            });
+        </script>
+    </body>
+</html>

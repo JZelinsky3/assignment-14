@@ -1,0 +1,74 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    color: #000000;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+ul {
+    text-align: left;
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+    background-color: #dddddd;
+}
+
+.movie {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+    background-color: #288e3c;
+}
+
+#addMovieButton {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#addMovieForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#addMovieForm label {
+    margin-top: 10px;
+}
+
+#addMovieForm input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 200px;
+}
+
+#successMessage, #errorMessage {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
